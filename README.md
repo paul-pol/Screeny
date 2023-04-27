@@ -1,2 +1,2 @@
 # ScreenReader
-A python library for reading objects from monitor screen.
+A python module for reading objects from monitor screen.
