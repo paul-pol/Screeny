@@ -1,2 +1,2 @@
-# ScreenReader
-A python module for reading objects from monitor screen.
+# Screeny
+A simple python library for working with screens and images.
