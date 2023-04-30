@@ -1,6 +1,8 @@
 Unreleased
 ==========
 
+0.1.0
+=====
 * added CHANGELOG.md
 
 0.0.3
