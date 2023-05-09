@@ -1,4 +1,4 @@
-from screeny.screeny import Screeny
+from screeny import Screeny
 
 import cv2
 
