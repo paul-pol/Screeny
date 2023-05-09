@@ -3,7 +3,11 @@ Unreleased
 
 0.1.0
 =====
-* added CHANGELOG.md
+* new: CHANGELOG.md
+* new: example-script for new function "get_mouse_pos()"
+* new: Mouse-class for getting information about the mouse-positio on screen
+* new: new sections in README.md (Installation, Usage, API-Reference)
+* new: implemented function "get_mouse_pos" in screeny-class
 
 0.0.3
 =====
