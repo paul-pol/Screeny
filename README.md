@@ -18,8 +18,8 @@ img = sc.take_screenshot()
 
 ## API-Reference
 
-* screeny.take_screenshot
-* screeny.get_mouse_pos
+* [screeny.take_screenshot](#screenytake_screenshotrect-qrect--none)
+* [screeny.get_mouse_pos](#get_mouse_pos)
 
 
 ### screeny.take_screenshot(rect: QRect = None)
