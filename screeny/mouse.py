@@ -13,4 +13,4 @@ class Mouse:
         self.q_cursor = QtGui.QCursor(self.q_screen.grabWindow(window=0))
 
     def get_pos(self):
-        return (self.q_cursor.pos().x(), self.q_cursor.pos().y())
+        return self.q_cursor.pos().x(), self.q_cursor.pos().y()
