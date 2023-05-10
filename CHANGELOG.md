@@ -1,6 +1,10 @@
 Unreleased
 ==========
 
+0.2.1
+=====
+* hotfix: implemented check, if an instance of QGuiApplication already exists, because runtime errors could occur.
+
 0.2.0
 =====
 * new: Functionality to search for an image on the screen or in another image.
