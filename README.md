@@ -20,8 +20,8 @@ img = sc.take_screenshot()
 
 * [screeny.take_screenshot](#screenytake_screenshotrect-qrect--none)
 * [screeny.get_mouse_pos](#screenyget_mouse_pos)
-* [screeny.locate_image_on_screen](#screenylocate_image_on_screen)
-* [screeny.locate_image_in_image](#screenylocate_image_in_image)
+* screeny.locate_image_on_screen
+* screeny.locate_image_in_image
 
 
 ### screeny.take_screenshot(rect: QRect = None)
