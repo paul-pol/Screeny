@@ -3,11 +3,6 @@ LICENSE-3RD-Party.txt
 README.md
 pyproject.toml
 setup.cfg
-Screeny.egg-info/PKG-INFO
-Screeny.egg-info/SOURCES.txt
-Screeny.egg-info/dependency_links.txt
-Screeny.egg-info/requires.txt
-Screeny.egg-info/top_level.txt
 screeny/__init__.py
 screeny/mouse.py
 screeny/screeny.py

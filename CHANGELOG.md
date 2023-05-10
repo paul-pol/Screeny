@@ -1,6 +1,10 @@
 Unreleased
 ==========
 
+0.2.0
+=====
+* new: Functionality to search for an image on the screen or in another image.
+
 0.1.0
 =====
 * new: CHANGELOG.md
