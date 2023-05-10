@@ -18,7 +18,14 @@ class Screeny:
         """
         self.mss = m.mss()
         self.mss_monitor = self.mss.monitors[1]
-        self.q_screen = QGuiApplication().primaryScreen()
+
+        # Because QGuiApplication is a singleton, it needs to be checked if already an instance exists of it.
+        # Otherwise, it'll lead to a runtime error, if multiple instances of the screeny class will be created.
+        if isinstance(QGuiApplication, type(None)):
+            self.q_screen = QGuiApplication().primaryScreen()
+        else:
+            self.q_screen = QGuiApplication.primaryScreen()
+
         self.mouse = Mouse(self.q_screen)
 
     def locate_image_on_screen(
