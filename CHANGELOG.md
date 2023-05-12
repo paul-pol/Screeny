@@ -1,6 +1,11 @@
 Unreleased
 ==========
 
+* new: Added module image with OCR-functionalities.
+* edit: Cleaned up import-statements for package.
+* new: Renamed QPoint-Class to Point.
+* new: Install-requirement "pytesseract" for OCR.
+
 0.2.1
 =====
 * hotfix: implemented check, if an instance of QGuiApplication already exists, because runtime errors could occur.
