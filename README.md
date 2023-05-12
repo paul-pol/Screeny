@@ -18,27 +18,97 @@ img = sc.take_screenshot()
 
 ## API-Reference
 
-* [screeny.take_screenshot](#screenytake_screenshotrect-qrect--none)
-* [screeny.get_mouse_pos](#screenyget_mouse_pos)
-* [screeny.locate_image_on_screen](#screenylocate_image_on_screenimage-str--typenparray-rect-qrect--none-confidence-float--08)
-* [screeny.locate_image_in_image](#locate_image_in_imageimg_to_find-str--typenparray-in_img_to_search-str--typenparray-confidence-float--08)
+* [Screeny.get_mouse_pos](#screenyget_mouse_pos)
+* [Screeny.locate_image](#screenylocate_imageimage-str--npndarray--image--rect-rect-confidence-float)
+* [Screeny.read_text](#screenyread_textrect-rect)
+* [Screeny.take_screenshot](#screenytake_screenshotrect-rect)
+####
+* [Image.__init__](#imageinitimage-str--npndarray--image)
+* [Image.binarize](#imagebinarizemethod-str-threshold-int)
+* [Image.denoise](#imagedenoise)
+* [Image.get_data](#imageget_data)
+* [Image.invert](#imageinvert)
+* [Image.locate_image](#imagelocate_imageimage_to_find-str--npndarray--image-confidence-float)
+* [Image.read_text](#imageread_textresize_factor-int-whitelist-str)
+* [Image.resize](#imageresizefactor-int)
+* [Image.show](#imageshowtitle-str)
+* [Image.to_grayscale](#imageto_grayscale)
+* [Image.to_hsv](#imageto_hsv)
 
+### Screeny-class
 
-### screeny.take_screenshot(rect: QRect = None)
-
-Takes a screenshot of the complete monitor or a given area as "rect".
-Returns the image as a numpy-array.
-
-### screeny.get_mouse_pos()
+#### Screeny.get_mouse_pos()
         
 Returns the current position of the mouse as a tuple of xy-coordinates.
 
-### screeny.locate_image_on_screen(image: str | type[np.array], rect: QRect = None, confidence: float = 0.8)
+---
+#### Screeny.locate_image(image: str | np.ndarray | Image [, rect: Rect, confidence: float])
 
-Search for an image on the screen.
-Returns the location of the found image in pixel or False, if no image was found.
+Search for an image on the screen. Returns the location of the found image in pixel or False, if no image was found.
 
-### locate_image_in_image(img_to_find: str | type[np.array], in_img_to_search: str | type[np.array], confidence: float = 0.8)
+---
+#### Screeny.read_text(rect: Rect)
 
-Search for an image in another image and returns the location of the found image in pixels.
-Returns False, if no image was found.
+Reads text from a given area on the screen. Returns the founded text as string.
+
+---
+#### Screeny.take_screenshot([rect: Rect])
+
+Takes a screenshot of the complete monitor or a given area as "rect". Returns an Image-Instance.
+
+
+### Image-Class
+
+#### Image.__init__(image: str | np.ndarray | Image)
+
+Creates a new instance of the Image-Class.
+
+---
+#### Image.binarize(method: str[, threshold: int])
+
+Binarize the image.
+
+---
+#### Image.denoise()
+
+Denoise the image.
+
+---
+#### Image.get_data()
+
+Returns the pixels as numpy-array.
+
+---
+#### Image.invert()
+
+Inverts the image.
+
+---
+#### Image.locate_image(image_to_find: str | np.ndarray | Image[, confidence: float])
+
+Locates an second image in the image and returns the position of the founded image or False if no image was found.
+
+---
+#### Image.read_text([resize_factor: int, whitelist: str])
+
+Reads the text from the image.
+
+---
+#### Image.resize(factor: int)
+
+Resizes the image with a given factor.
+
+---
+#### Image.show([title: str])
+
+Displays the image.
+
+---
+#### Image.to_grayscale()
+
+Converts the image to grayscale.
+
+---
+#### Image.to_hsv()
+
+Converts the image to HSV.

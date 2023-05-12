@@ -4,6 +4,7 @@ README.md
 pyproject.toml
 setup.cfg
 screeny/__init__.py
+screeny/image.py
 screeny/mouse.py
 screeny/screeny.py
 screeny.egg-info/PKG-INFO
