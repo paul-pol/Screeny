@@ -24,7 +24,7 @@ class Screeny:
         self.mouse = Mouse(self.q_screen)
 
     def locate_image(
-            self, image: str | type[np.array] | Image, rect: Rect = None, confidence: float = 0.8
+            self, image: str | np.ndarray | Image, rect: Rect = None, confidence: float = 0.8
     ) -> Point | bool:
         """
         Search for an image on the screen and returns the location of the found image in pixel or False, if no image was found.
