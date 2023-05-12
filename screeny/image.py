@@ -56,8 +56,10 @@ class Image:
 
     def locate_image(self, image_to_find: Union[str, np.ndarray, "Image"], confidence: float = 0.8) -> Point | bool:
         template = Image(image_to_find).to_grayscale()
+        image = copy.copy(self)
+        image.to_grayscale()
 
-        heat_map = cv2.matchTemplate(self.data, template.get_data(), cv2.TM_CCOEFF_NORMED)
+        heat_map = cv2.matchTemplate(image.get_data(), template.get_data(), cv2.TM_CCOEFF_NORMED)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(heat_map)
         if max_val >= confidence:
             w, h = template.get_data().shape
