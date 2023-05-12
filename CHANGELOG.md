@@ -1,6 +1,10 @@
 Unreleased
 ==========
 
+0.3.2
+=====
+* hotfix: Image.locate_image produced an error because of false colorcodes when calling matchTemplate-function from opencv
+
 0.3.1
 =====
 * hotfix: Image.data() doesn't exist, but was called in image.py
