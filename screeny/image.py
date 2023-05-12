@@ -1,8 +1,7 @@
-import copy
-
-from PySide6.QtCore import QPoint
+from screeny import *
 from typing import Union
 
+import copy
 import numpy as np, cv2, pytesseract
 
 # Todo: How to specify the path on other systems?
@@ -57,14 +56,14 @@ class Image:
         self.color_code = "HSV"
         return self
 
-    def locate_image(self, image_to_find: Union[str, np.ndarray, "Image"], confidence: float = 0.8) -> QPoint | bool:
+    def locate_image(self, image_to_find: Union[str, np.ndarray, "Image"], confidence: float = 0.8) -> Point | bool:
         template = Image(image_to_find).to_grayscale()
 
         heat_map = cv2.matchTemplate(self.data, template.data(), cv2.TM_CCOEFF_NORMED)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(heat_map)
         if max_val >= confidence:
             w, h = template.data().shape
-            return QPoint(max_loc[0] + (w / 2), max_loc[1] + (h / 2))
+            return Point(max_loc[0] + (w / 2), max_loc[1] + (h / 2))
         else:
             return False
 
