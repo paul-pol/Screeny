@@ -22,7 +22,7 @@ img = sc.take_screenshot()
 * [Screeny.locate_image](#screenylocate_imageimage-str--npndarray--image--rect-rect-confidence-float)
 * [Screeny.read_text](#screenyread_textrect-rect)
 * [Screeny.take_screenshot](#screenytake_screenshotrect-rect)
-
+####
 * [Image.__init__](#imageinitimage-str--npndarray--image)
 * [Image.binarize](#imagebinarizemethod-str-threshold-int)
 * [Image.denoise](#imagedenoise)
