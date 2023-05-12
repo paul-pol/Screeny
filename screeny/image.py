@@ -3,9 +3,7 @@ from typing import Union
 
 import copy
 import numpy as np, cv2, pytesseract
-
-# Todo: How to specify the path on other systems?
-pytesseract.pytesseract.tesseract_cmd = r'/usr/local/Cellar/tesseract/5.3.1/bin/tesseract'
+# pytesseract.pytesseract.tesseract_cmd = r'/usr/local/Cellar/tesseract/5.3.1/bin/tesseract'
 
 
 class Image:
