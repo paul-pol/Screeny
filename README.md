@@ -18,22 +18,22 @@ img = sc.take_screenshot()
 
 ## API-Reference
 
-* Screeny.get_mouse_pos
-* Screeny.locate_image
-* Screeny.read_text
-* Screeny.take_screenshot
+* [Screeny.get_mouse_pos](#screenyget_mouse_pos)
+* [Screeny.locate_image](#screenylocate_imageimage-str--npndarray--image--rect-rect-confidence-float)
+* [Screeny.read_text](#screenyread_textrect-rect)
+* [Screeny.take_screenshot](#screenytake_screenshotrect-rect)
 
-* Image.__init__
-* Image.binarize
-* Image.denoise
-* Image.get_data
-* Image.invert
-* Image.locate_image
-* Image.read_text
-* Image.resize
-* Image.show
-* Image.to_grayscale
-* Image.to_hsv
+* [Image.__init__](#imageinitimage-str--npndarray--image)
+* [Image.binarize](#imagebinarizemethod-str-threshold-int)
+* [Image.denoise](#imagedenoise)
+* [Image.get_data](#imageget_data)
+* [Image.invert](#imageinvert)
+* [Image.locate_image](#imagelocate_imageimage_to_find-str--npndarray--image-confidence-float)
+* [Image.read_text](#imageread_textresize_factor-int-whitelist-str)
+* [Image.resize](#imageresizefactor-int)
+* [Image.show](#imageshowtitle-str)
+* [Image.to_grayscale](#imageto_grayscale)
+* [Image.to_hsv](#imageto_hsv)
 
 ### Screeny-class
 
