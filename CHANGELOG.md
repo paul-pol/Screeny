@@ -1,6 +1,10 @@
 Unreleased
 ==========
 
+0.3.1
+=====
+* hotfix: Image.data() doesn't exist, but was called in image.py
+
 0.3.0
 =====
 * new: Added module image with OCR-functionalities.
