@@ -4,7 +4,7 @@ from PySide6.QtGui import QGuiApplication
 
 class Mouse:
 
-    def __init__(self, q_screen : QtGui.QScreen = None):
+    def __init__(self, q_screen: QtGui.QScreen = None):
         if q_screen is None:
             self.q_screen = QGuiApplication().primaryScreen()
         else:
