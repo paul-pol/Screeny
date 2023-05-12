@@ -1,6 +1,8 @@
 Unreleased
 ==========
 
+0.3.0
+=====
 * new: Added module image with OCR-functionalities.
 * edit: Cleaned up import-statements for package.
 * new: Renamed QPoint-Class to Point.
