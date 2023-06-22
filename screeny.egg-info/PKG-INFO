@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: screeny
-Version: 0.3.2
+Version: 0.4.0
 Summary: A simple python library for working with screens and images.
 Author: Paul Pol
 Author-email: mail@paul-pol.de
@@ -38,13 +38,18 @@ img = sc.take_screenshot()
 ####
 * [Image.__init__](#imageinitimage-str--npndarray--image)
 * [Image.binarize](#imagebinarizemethod-str-threshold-int)
+* Image.compute_descriptors
 * [Image.denoise](#imagedenoise)
+* Image.detect_features
+* Image.detect_keypoints
 * [Image.get_data](#imageget_data)
 * [Image.invert](#imageinvert)
 * [Image.locate_image](#imagelocate_imageimage_to_find-str--npndarray--image-confidence-float)
+* Image.match_features
 * [Image.read_text](#imageread_textresize_factor-int-whitelist-str)
 * [Image.resize](#imageresizefactor-int)
 * [Image.show](#imageshowtitle-str)
+* Image.show_matches
 * [Image.to_grayscale](#imageto_grayscale)
 * [Image.to_hsv](#imageto_hsv)
 
@@ -82,9 +87,24 @@ Creates a new instance of the Image-Class.
 Binarize the image.
 
 ---
+#### Image.compute_descriptors()
+
+Computes the descriptors of the image.
+
+---
 #### Image.denoise()
 
 Denoise the image.
+
+---
+#### Image.detect_features()
+
+Finds features (keypoints and descriptors) in the image.
+
+---
+#### Image.detect_keypoints()
+
+Finds the keypoints of the image.
 
 ---
 #### Image.get_data()
@@ -102,6 +122,11 @@ Inverts the image.
 Locates an second image in the image and returns the position of the founded image or False if no image was found.
 
 ---
+#### Image.match_features(image_to_find: str | np.ndarray | Image)
+
+Matches the features of the image with another image.
+
+---
 #### Image.read_text([resize_factor: int, whitelist: str])
 
 Reads the text from the image.
@@ -115,6 +140,11 @@ Resizes the image with a given factor.
 #### Image.show([title: str])
 
 Displays the image.
+
+---
+#### Image.show_matches(image_to_find: str | np.ndarray | Image, matches: list)
+
+Show the two images with matches as lines connect points.
 
 ---
 #### Image.to_grayscale()
