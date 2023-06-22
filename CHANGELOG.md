@@ -1,6 +1,12 @@
 Unreleased
 ==========
 
+0.4.0
+=====
+* New: ORB-Detector to Image-class
+* New: functions to detect keypoints and compute descriptors
+* New: functions to match features of two images
+
 0.3.2
 =====
 * hotfix: Image.locate_image produced an error because of false colorcodes when calling matchTemplate-function from opencv
