@@ -140,20 +140,41 @@ class Image:
         return self
 
     def detect_keypoints(self) -> "Image":
+        """
+        Finds the keypoints of the image.
+
+        :return: Image
+        """
         # find the keypoints with ORB
         self.keypoints = self.orb_detector.detect(self.data, None)
         return self
 
     def compute_descriptors(self) -> "Image":
+        """
+        Computes the descriptors of the image.
+
+        :return: Image
+        """
         # compute the descriptors with ORB
         self.keypoints, self.descriptors = self.orb_detector.compute(self.data, self.keypoints)
         return self
 
     def detect_features(self) -> "Image":
+        """
+        Finds feature in the image.
+
+        :return: Image
+        """
         self.keypoints, self.descriptors = self.orb_detector.detectAndCompute(self.data, None)
         return self
 
-    def match_features(self, image_to_find: Union[str, np.ndarray, "Image"]):
+    def match_features(self, image_to_find: Union[str, np.ndarray, "Image"]) -> list:
+        """
+        Matches the features of the image with another image.
+
+        :param image_to_find: str | np.ndarray | Image
+        :return: list
+        """
         template = Image(image_to_find)  #.to_grayscale()
 
         if len(template.descriptors) <= 0:
@@ -167,7 +188,14 @@ class Image:
         matches = sorted(matches, key=lambda x: x.distance)  # Sort them in the order of their distance.
         return matches
 
-    def show_matches(self, image_to_find: Union[str, np.ndarray, "Image"], matches: list):
+    def show_matches(self, image_to_find: Union[str, np.ndarray, "Image"], matches: list) -> None:
+        """
+        Show the two images with matches as lines connect points.
+
+        :param image_to_find: str | np.ndarray | Image
+        :param matches: list
+        :return:
+        """
         template = Image(image_to_find)
 
         Image(cv2.drawMatches(
