@@ -8,7 +8,15 @@ import numpy as np, cv2, pytesseract
 
 class Image:
 
+    data: np.ndarray = np.array([])
+    color_code: str = ""
+    orb_detector: cv2.ORB = None
+    keypoints: tuple = ()
+    descriptors: np.ndarray = np.array([])
+
     def __init__(self, image: Union[str, np.ndarray, "Image"]):
+        self.orb_detector = cv2.ORB_create()
+
         if type(image) is str:
             self.data = cv2.imread(image)
             self.color_code = "BGR"
@@ -18,6 +26,8 @@ class Image:
         elif type(image) is Image:
             self.data = image.get_data()
             self.color_code = image.color_code
+            self.keypoints = image.keypoints
+            self.descriptors = image.descriptors
         else:
             raise Exception("Unknown image-type!")
 
@@ -71,7 +81,7 @@ class Image:
         self.data = cv2.resize(self.data, None, fx=factor, fy=factor, interpolation=cv2.INTER_CUBIC)
         return self
 
-    def binarize(self, method: str, threshold: int = 127) -> "Image":
+    def binarize(self, method: str = "otsus_thresholding", threshold: int = 127) -> "Image":
         if self.color_code != "GRAY":
             raise Exception("Colorcode should be 'GRAY' for binarizing image!")
 
@@ -113,10 +123,54 @@ class Image:
         ).strip("\n\r")
         return text
 
-    def show(self, title: str = ""):
-        cv2.imshow(title, self.data)
-        cv2.waitKey(0)
+    def show(self, title: str = "", with_keypoints: bool = False):
+        if with_keypoints:
+            img2 = cv2.drawKeypoints(self.data, self.keypoints, None, color=(0, 255, 0), flags=0)
+            cv2.imshow(title, img2)
+            cv2.waitKey(0)
+
+            """plt.imshow(img2)
+            plt.show()"""
+        else:
+            cv2.imshow(title, self.data)
+            cv2.waitKey(0)
 
     def invert(self) -> "Image":
         self.data = cv2.bitwise_not(self.data)
         return self
+
+    def detect_keypoints(self) -> "Image":
+        # find the keypoints with ORB
+        self.keypoints = self.orb_detector.detect(self.data, None)
+        return self
+
+    def compute_descriptors(self) -> "Image":
+        # compute the descriptors with ORB
+        self.keypoints, self.descriptors = self.orb_detector.compute(self.data, self.keypoints)
+        return self
+
+    def detect_features(self) -> "Image":
+        self.keypoints, self.descriptors = self.orb_detector.detectAndCompute(self.data, None)
+        return self
+
+    def match_features(self, image_to_find: Union[str, np.ndarray, "Image"]):
+        template = Image(image_to_find)  #.to_grayscale()
+
+        if len(template.descriptors) <= 0:
+            template.detect_features()
+
+        if len(self.descriptors) <= 0:
+            self.detect_features()
+
+        bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
+        matches = bf.match(self.descriptors, template.descriptors)  # Match descriptors.
+        matches = sorted(matches, key=lambda x: x.distance)  # Sort them in the order of their distance.
+        return matches
+
+    def show_matches(self, image_to_find: Union[str, np.ndarray, "Image"], matches: list):
+        template = Image(image_to_find)
+
+        Image(cv2.drawMatches(
+            self.data, self.keypoints, template.get_data(),
+            template.keypoints, matches, None, flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS
+        )).show("Matched images")
