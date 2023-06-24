@@ -128,7 +128,7 @@ Resizes the image with a given factor.
 #### Image.save(title: str[, path: str])
 
 Saves the image on the disk in a given path with a given title.
-If no path is specified, the file be saved in the current active directory.
+If no path is specified, the file will be saved in the current active directory.
 
 ---
 #### Image.show([title: str])
