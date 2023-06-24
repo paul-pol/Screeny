@@ -35,6 +35,7 @@ img = sc.take_screenshot()
 * [Image.match_features](#imagematch_featuresimage_to_find-str--npndarray--image)
 * [Image.read_text](#imageread_textresize_factor-int-whitelist-str)
 * [Image.resize](#imageresizefactor-int)
+* [Image.save]
 * [Image.show](#imageshowtitle-str)
 * [Image.show_matches](#imageshow_matchesimage_to_find-str--npndarray--image-matches-list)
 * [Image.to_grayscale](#imageto_grayscale)
@@ -122,6 +123,12 @@ Reads the text from the image.
 #### Image.resize(factor: int)
 
 Resizes the image with a given factor.
+
+---
+#### Image.save(title: str[, path: str])
+
+Saves the image on the disk in a given path with a given title.
+If no path is specified, the file be saved in the current active directory.
 
 ---
 #### Image.show([title: str])

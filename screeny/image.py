@@ -145,10 +145,9 @@ class Image:
         self.data = cv2.resize(self.data, None, fx=factor, fy=factor, interpolation=cv2.INTER_CUBIC)
         return self
 
-    def save(self, title: str = "", path: str = "") -> bool:
+    def save(self, title: str, path: str = "") -> bool:
         """
         Saves the image on the disk in a given path with a given title.
-        If no title is specified, a datetime-name will be generated.
         If no path is specified, the file be saved in the current active directory.
 
         :param title: str
