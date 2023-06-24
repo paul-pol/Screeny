@@ -1,6 +1,10 @@
 Unreleased
 ==========
 
+0.4.1
+=====
+* New: Method to save image as a file.
+
 0.4.0
 =====
 * New: ORB-Detector to Image-class
