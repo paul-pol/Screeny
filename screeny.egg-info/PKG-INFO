@@ -38,18 +38,18 @@ img = sc.take_screenshot()
 ####
 * [Image.__init__](#imageinitimage-str--npndarray--image)
 * [Image.binarize](#imagebinarizemethod-str-threshold-int)
-* Image.compute_descriptors
+* [Image.compute_descriptors](#imagecompute_descriptors)
 * [Image.denoise](#imagedenoise)
-* Image.detect_features
-* Image.detect_keypoints
+* [Image.detect_features](#imagedetect_features)
+* [Image.detect_keypoints](#imagedetect_keypoints)
 * [Image.get_data](#imageget_data)
 * [Image.invert](#imageinvert)
 * [Image.locate_image](#imagelocate_imageimage_to_find-str--npndarray--image-confidence-float)
-* Image.match_features
+* [Image.match_features](#imagematch_featuresimage_to_find-str--npndarray--image)
 * [Image.read_text](#imageread_textresize_factor-int-whitelist-str)
 * [Image.resize](#imageresizefactor-int)
 * [Image.show](#imageshowtitle-str)
-* Image.show_matches
+* [Image.show_matches](#imageshow_matchesimage_to_find-str--npndarray--image-matches-list)
 * [Image.to_grayscale](#imageto_grayscale)
 * [Image.to_hsv](#imageto_hsv)
 
