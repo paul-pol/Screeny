@@ -148,7 +148,7 @@ class Image:
     def save(self, title: str, path: str = "") -> bool:
         """
         Saves the image on the disk in a given path with a given title.
-        If no path is specified, the file be saved in the current active directory.
+        If no path is specified, the file will be saved in the current active directory.
 
         :param title: str
         :param path: str
