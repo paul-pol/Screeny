@@ -35,7 +35,7 @@ img = sc.take_screenshot()
 * [Image.match_features](#imagematch_featuresimage_to_find-str--npndarray--image)
 * [Image.read_text](#imageread_textresize_factor-int-whitelist-str)
 * [Image.resize](#imageresizefactor-int)
-* [Image.save]
+* [Image.save](#imagesavetitle-str-path-str)
 * [Image.show](#imageshowtitle-str)
 * [Image.show_matches](#imageshow_matchesimage_to_find-str--npndarray--image-matches-list)
 * [Image.to_grayscale](#imageto_grayscale)
