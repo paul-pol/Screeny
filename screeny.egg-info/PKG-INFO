@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: screeny
-Version: 0.4.0
+Version: 0.4.1
 Summary: A simple python library for working with screens and images.
 Author: Paul Pol
 Author-email: mail@paul-pol.de
@@ -38,18 +38,19 @@ img = sc.take_screenshot()
 ####
 * [Image.__init__](#imageinitimage-str--npndarray--image)
 * [Image.binarize](#imagebinarizemethod-str-threshold-int)
-* Image.compute_descriptors
+* [Image.compute_descriptors](#imagecompute_descriptors)
 * [Image.denoise](#imagedenoise)
-* Image.detect_features
-* Image.detect_keypoints
+* [Image.detect_features](#imagedetect_features)
+* [Image.detect_keypoints](#imagedetect_keypoints)
 * [Image.get_data](#imageget_data)
 * [Image.invert](#imageinvert)
 * [Image.locate_image](#imagelocate_imageimage_to_find-str--npndarray--image-confidence-float)
-* Image.match_features
+* [Image.match_features](#imagematch_featuresimage_to_find-str--npndarray--image)
 * [Image.read_text](#imageread_textresize_factor-int-whitelist-str)
 * [Image.resize](#imageresizefactor-int)
+* [Image.save]
 * [Image.show](#imageshowtitle-str)
-* Image.show_matches
+* [Image.show_matches](#imageshow_matchesimage_to_find-str--npndarray--image-matches-list)
 * [Image.to_grayscale](#imageto_grayscale)
 * [Image.to_hsv](#imageto_hsv)
 
@@ -135,6 +136,12 @@ Reads the text from the image.
 #### Image.resize(factor: int)
 
 Resizes the image with a given factor.
+
+---
+#### Image.save(title: str[, path: str])
+
+Saves the image on the disk in a given path with a given title.
+If no path is specified, the file be saved in the current active directory.
 
 ---
 #### Image.show([title: str])
