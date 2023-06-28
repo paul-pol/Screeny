@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: screeny
-Version: 0.4.1
+Version: 0.5.0
 Summary: A simple python library for working with screens and images.
 Author: Paul Pol
 Author-email: mail@paul-pol.de
@@ -123,7 +123,7 @@ Inverts the image.
 Locates an second image in the image and returns the position of the founded image or False if no image was found.
 
 ---
-#### Image.match_features(image_to_find: str | np.ndarray | Image)
+#### Image.match_features(image_to_find: str | np.ndarray | Image, cross_check: bool)
 
 Matches the features of the image with another image.
 
@@ -141,7 +141,7 @@ Resizes the image with a given factor.
 #### Image.save(title: str[, path: str])
 
 Saves the image on the disk in a given path with a given title.
-If no path is specified, the file be saved in the current active directory.
+If no path is specified, the file will be saved in the current active directory.
 
 ---
 #### Image.show([title: str])

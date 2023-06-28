@@ -1,6 +1,10 @@
 Unreleased
 ==========
 
+0.5.0
+=====
+* New: Added parameter crossCheck to match_features-method.
+
 0.4.1
 =====
 * New: Method to save image as a file.
