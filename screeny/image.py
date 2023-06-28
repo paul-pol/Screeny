@@ -37,13 +37,14 @@ class Image:
         if self.color_code != "GRAY":
             raise Exception("Colorcode should be 'GRAY' for binarizing image!")
 
+
         if method == "simple_thresholding":
-            ret, self.data = cv2.threshold(self.data, threshold, 255, cv2.THRESH_BINARY_INV)
+            ret, self.data = cv2.threshold(self.data, threshold, 255, cv2.THRESH_BINARY_INV) # Todo: Check, why the binarization is done inverted here??
         elif method == "adaptive_thresholding":
-            self.data = cv2.adaptiveThreshold(self.data, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2)
+            self.data = cv2.adaptiveThreshold(self.data, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2) # Todo: Check, why the binarization is done inverted here??
         elif method == "otsus_thresholding":
             # The threshold-value will be automatically detected
-            ret, self.data = cv2.threshold(self.data, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+            ret, self.data = cv2.threshold(self.data, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU) # Todo: Check, why the binarization is done inverted here??
         else:
             raise Exception(f"Binarization-metho '{method}' is unknown!")
 
@@ -99,10 +100,11 @@ class Image:
         else:
             return False
 
-    def match_features(self, image_to_find: Union[str, np.ndarray, "Image"]) -> list:
+    def match_features(self, image_to_find: Union[str, np.ndarray, "Image"], cross_check = True) -> list:
         """
         Matches the features of the image with another image.
 
+        :param cross_check: bool
         :param image_to_find: str | np.ndarray | Image
         :return: list
         """
@@ -114,7 +116,7 @@ class Image:
         if len(self.descriptors) <= 0:
             self.detect_features()
 
-        bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
+        bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=cross_check)
         matches = bf.match(self.descriptors, template.descriptors)  # Match descriptors.
         matches = sorted(matches, key=lambda x: x.distance)  # Sort them in the order of their distance.
         return matches
