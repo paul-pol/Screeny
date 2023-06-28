@@ -110,7 +110,7 @@ Inverts the image.
 Locates an second image in the image and returns the position of the founded image or False if no image was found.
 
 ---
-#### Image.match_features(image_to_find: str | np.ndarray | Image)
+#### Image.match_features(image_to_find: str | np.ndarray | Image, cross_check: bool)
 
 Matches the features of the image with another image.
 
